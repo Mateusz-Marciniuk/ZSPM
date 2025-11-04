@@ -1,0 +1,21 @@
+
+/* Znajdź łączną kwotę zamówień dla każdego pracownika wraz z ich nazwiskami 
+i identyfikatorami i posortuj malejąco według łącznej kwoty */
+
+/*Znajdź trzy najczęściej zamawiane produkty wraz z ilością zamówień*/
+
+/* Znajdź klientów, którzy dokonali największych zakupów (suma wartości zamówień ) w każdym kraju */
+
+/* znajdź kategorię produktów, które mają największą średnią wartość zamówienia */
+	
+/* Znajdź klientów którzy dokonali zakupów w conajmniej dwóch różnych kategoriach produktów */
+
+ /* Znajdź wszystkie produkty, które nie zostały jeszcze zamówione */
+
+/* Znajdź pracowników, którzy nie dokonali żadnych zamówien */
+
+/* Znajdź pracowników, którzy obsługiwali zamówienia w kraju innym niż ich własny */
+
+/* Znajdź klientów którzy dokonali zamówienia we wszystkich kategoriach produktów */
+
+
