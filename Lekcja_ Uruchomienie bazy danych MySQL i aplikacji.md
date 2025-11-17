@@ -155,6 +155,12 @@ docker run -d \
 - **MYSQL_PASSWORD** - hasło dla użytkownika aplikacyjnego
 
 ### 3. Uruchomienie BookStack z docker-compose
+```sh
+docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
+
+# wrazie problemów z woluminem
+docker volume rm mysql_data
+```
 
 Plik `docker-compose.yml`:
 
@@ -162,7 +168,7 @@ Plik `docker-compose.yml`:
 version: "3.7"
 services:
   mysql:
-    image: mysql:8
+    image: mysql:latest
     container_name: bookstack_mysql
     environment:
       MYSQL_ROOT_PASSWORD: example
@@ -177,9 +183,21 @@ services:
     image: linuxserver/bookstack
     container_name: bookstack_app
     environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      # APP_URL must be set as the base URL you'd expect to access BookStack
+      # on via the browser. The default shown here is what you might use if accessing
+      # direct from the browser on the docker host, hence the use of the port as configured below.
+      - APP_URL=http://<IP>:6875
+      # APP_KEY must be a unique key. Generate your own by running
+      # docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
+      # You should keep the "base64:" part for the option value.
+      - APP_KEY=<WYGENEROWANY_KLUCZ>
       - DB_HOST=mysql
-      - DB_USER=bookstack
-      - DB_PASS=secret
+      - DB_PORT=3306
+      - DB_USERNAME=bookstack
+      - DB_PASSWORD=secret
       - DB_DATABASE=bookstack
     ports:
       - 6875:80
@@ -189,12 +207,14 @@ services:
 
 volumes:
   mysql_data:
+
+
 ```
 
 Uruchom aplikację:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 #### Dane do logowania do aplikacji 
 admin@admin.com / password  <br>
