@@ -22,7 +22,7 @@ W Tabeli 2 umieszczono wybrane funkcje czasu i daty dla bazy danych MariaDB. Za 
     * Zapytanie 4: wybierające jedynie pola rejestracja, waga, dzien, czas z tabeli wagi i odpowiadające mu pole ulica z tabeli lokalizacje dla pojazdów, których waga na oś przekracza 5 t. Należy posłużyć się relacją
 
 # Zadanie 2
-PlikiCz202408 zabezpieczone hasłem: _Rejestr@cja_
+PlikiCz202408 zabezpieczone hasłem: ```_Rejestr@cja_```
 
 ## Operacje na bazie danych
 
@@ -60,3 +60,4 @@ Za pomocą narzędzia phpMyAdmin wykonaj operacje na bazie danych:
     * Zapytanie 2: liczące średnią cenę dla wycieczek pogrupowanych ze względu na liczbę dni (czyli średnia cena wycieczek jednodniowych, dwudniowych itd.). Kwerenda wybiera jedynie liczbę dni oraz średnią cenę, której kolumnę należy nazwać (alias) "sredniaCena"
     * Zapytanie 3: wybierające jedynie miejsce wycieczki i odpowiadającą mu nazwę zdjęcia dla wycieczek, których cena jest wyższa od 500 zł. Należy posłużyć się relacją
     * Zapytanie 4: Tworzące użytkownika Ewa o haśle Ewa!Ewa dla bazy wycieczki na serwerze localhost
+
