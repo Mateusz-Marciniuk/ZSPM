@@ -1,15 +1,5 @@
 # Plan Lekcji: Optymalizacja Bazy Danych MySQL
 
-**Czas trwania:** 90 minut
-**Poziom:** Technikum informatyczne (podstawy baz danych)
-**Cel lekcji:** Uczniowie zrozumieją podstawy optymalizacji MySQL, nauczą się używać indeksów i narzędzia EXPLAIN, oraz zobaczą wpływ na wydajność zapytań.
-**Wymagania:** Komputer z MySQL (np. XAMPP, lokalny serwer), klient MySQL (np. phpMyAdmin lub terminal mysql). Każdy uczeń ma dostęp do bazy. Nauczyciel kopiuje skrypty z tego dokumentu.
-
-## Materiały i Przygotowanie (5 min)
-
-Zainstaluj XAMPP lub podobny (jeśli nie ma). Uruchom MySQL.
-Utwórz bazę testową na początku lekcji (skrypt poniżej).
-**Skrypt startowy (wklej do MySQL):**
 
 ```
 DROP DATABASE IF EXISTS optymalizacja_demo;
@@ -25,21 +15,6 @@ CREATE TABLE pracownicy (
     data_zatrudnienia DATE
 );
 
--- Wstaw 10000 rekordów (demo z dużą ilością danych)
-DELIMITER //
-CREATE PROCEDURE WstawDane()
-BEGIN
-    DECLARE i INT DEFAULT 1;
-    WHILE i <= 10000 DO
-        INSERT INTO pracownicy (imie, nazwisko, departament, pensja, data_zatrudnienia)
-        VALUES (CONCAT('Imie', i), CONCAT('Nazwisko', i), CONCAT('Dept', MOD(i,10)+1), RAND()*10000+2000, DATE_SUB(NOW(), INTERVAL FLOOR(RAND()*3650) DAY));
-        SET i = i + 1;
-    END WHILE;
-END //
-DELIMITER ;
-
-CALL WstawDane();
-DROP PROCEDURE WstawDane;
 ```
 
 **Wyjaśnienie dla nauczyciela:** Ten skrypt tworzy tabelę z 10k rekordami. Bez indeksów zapytania będą wolne.
